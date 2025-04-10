@@ -7,31 +7,55 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-              <a class="nav-link">Projects</a>
+              <a href="{% url 'projects' %}" class="nav-link">Projects</a>
           </li>
           <li class="nav-item">
-              <a href="{% url 'blog' %}" class="nav-link">Blog</a>
+              <a href="{% url 'blog_all' %}" class="nav-link">Blog</a>
           </li>
           <li class="nav-item">
               <a class="nav-link">Resume</a>
           </li>
       </ul>
     </div>
-      <div class="form-check form-switch">
-          <i id="mode-icon" class="fa-solid fa-moon"></i>
-          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked="checked" onclick="function toggleDarkMode() {
-              if (document.documentElement.getAttribute('data-bs-theme') === 'dark') {
-                document.documentElement.setAttribute('data-bs-theme','light')
-                document.getElementById('mode-icon').setAttribute('class','fa-solid fa-sun')
-                document.getElementById('mode-label').innerText = 'Light Mode'
+      <div class="row row-cols-auto">
+        <div class="col align-right">
+          <a href="https://github.com/mjohns91" class="bi bi-github" target="_blank"></a>
+        </div>
+        <div class="col align-right">
+          <a href="https://www.linkedin.com/in/matthew-scott-johnson" class="bi bi-linkedin" target="_blank"></a>
+        </div>
+        <div class="col align-right">
+          <a href="https://public.tableau.com/app/profile/matthew.johnson4556/vizzes" class="bi bi-clipboard-data-fill" target="_blank"></a>
+        </div>
+      </div>
+      <div class="form-check form-switch" style="margin-left: 20px">
+          <i id="mode-icon"></i>
+          <script>
+              if(!localStorage.getItem("firstTime")){
+                  document.getElementById("html").setAttribute("data-bs-theme", "dark")
+                  document.getElementById("mode-icon").setAttribute("class", "bi bi-moon-fill")
+                  localStorage.setItem("firstTime", "true");
+                  localStorage.setItem("theme", "dark");
+                  localStorage.setItem("theme-icon", "bi bi-moon-fill");
               }
-              else {
-                document.documentElement.setAttribute('data-bs-theme','dark')
-                document.getElementById('mode-icon').setAttribute('class','fa-solid fa-moon')
-                document.getElementById('mode-label').innerText = 'Dark Mode'
+              else{
+                  document.getElementById("html").setAttribute("data-bs-theme", localStorage.getItem('theme'))
+                  document.getElementById("mode-icon").setAttribute('class', localStorage.getItem('theme-icon'))
               }
-          }toggleDarkMode()">
-          <label id="mode-label" class="form-check-label" for="flexSwitchCheckDefault">Dark Mode</label>
+          </script>
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked="checked" onclick="function toggleThemeMode() {
+              let html_ele = document.querySelector('html')
+              let icon_ele = document.querySelector('#mode-icon')
+              if (localStorage.getItem('theme') === 'light') {
+                  localStorage.setItem('theme', 'dark')
+                  localStorage.setItem('theme-icon', 'bi bi-moon-fill')
+              } else {
+                  localStorage.setItem('theme', 'light')
+                  localStorage.setItem('theme-icon', 'bi bi-sun-fill')
+              }
+              html_ele.setAttribute('data-bs-theme', localStorage.getItem('theme'))
+              icon_ele.setAttribute('class', localStorage.getItem('theme-icon'))
+          }toggleThemeMode()">
       </div>
   </div>
 </nav>
