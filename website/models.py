@@ -9,6 +9,8 @@ class BlogPost(models.Model):
     topic = models.CharField(max_length=200)
     posted_date = models.DateTimeField(auto_now_add=True)
     edit_date = models.DateTimeField(auto_now=True)
+    title_slug = models.SlugField(max_length=200, unique=True, blank=True)
+    topic_slug = models.SlugField(max_length=200, unique=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -23,6 +25,8 @@ class Project(models.Model):
     posted_date = models.DateTimeField(auto_now_add=True)
     edit_date = models.DateTimeField(auto_now=True)
     github_link = models.URLField(blank=True)
+    title_slug = models.SlugField(max_length=200, unique=True, blank=True)
+    topic_slug = models.SlugField(max_length=200, unique=True, blank=True)
 
     def __str__(self):
         return self.title
