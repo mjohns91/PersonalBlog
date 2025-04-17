@@ -1,15 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="container">
+    <div class="container my-1">
         <h1>Projects</h1>
-        <p>This is a collection of my projects and their GitHub links...</p>
+        <p>This page showcases a collection of my work, highlighting the various ideas and creations
+            I’ve been passionate about. Each project represents not only a milestone in my journey but also a testament
+            to continuous learning and experimentation. Whether you're here to explore my skills, gain insights,
+            or just satisfy your curiosity, I’ve included links to their GitHub repositories to provide more
+            technical depth. Feel free to take a closer look!</p>
     </div>
     <div class="container">
         {% for project in projects %}
-            <h1>{{ project.title }}</h1>
-            <p>{{ project.posted_date }}</p>
-            <p>{{ project.content }}</p>
-            <p><a href="{{ project.github_link }}">GitHub Link</a></p>
+            <div class="card my-1">
+                <div class="card-body">
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.posted_date.date }}</p>
+                    <p>{{ project.content }}</p>
+                    <div class="container">
+                        <i class="bi bi-github"><a class="mx-1" href="{{ project.github_link }}">View on Github</a></i>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
     </div>
 {% endblock %}

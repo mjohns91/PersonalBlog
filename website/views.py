@@ -30,7 +30,6 @@ def blog_by_topic_htmx(request, topic_slug):
     # Render only the posts partial template for htmx
     return render(request, "partials/blog_posts.html", context)
 
-
 def blog_post(request, topic_slug, title_slug):
     """Sends the user to a specific blog post"""
     post = get_object_or_404(BlogPost, topic_slug=topic_slug, title_slug=title_slug)
