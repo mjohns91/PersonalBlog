@@ -42,5 +42,5 @@ def projects(request):
 
 def download_resume(request):
     # Path to the PDF file
-    pdf_path = os.path.join('website','static','files','MatthewJohnson_Resume_Mar2024.pdf')
+    pdf_path = os.path.join('website','static','files','MatthewJohnson_Resume_Mar2025.pdf')
     return FileResponse(open(pdf_path, 'rb'), as_attachment=True, filename='MSJ_resume.pdf')
