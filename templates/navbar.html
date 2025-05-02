@@ -7,25 +7,23 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-              <a href="{% url 'projects' %}" class="nav-link">Projects</a>
+              <a href="{% url 'projects' %}" class="bi bi-box-seam-fill nav-link"> Projects</a>
           </li>
           <li class="nav-item">
-              <a href="{% url 'blog' %}" class="nav-link">Blog</a>
+              <a href="{% url 'blog' %}" class="bi bi-journals nav-link"> Blog</a>
+          </li>
+{#          <li class="nav-item">#}
+{#              <a href="{% url 'download_resume' %}" class="nav-link">Resume</a>#}
+{#          </li>#}
+          <li class="nav-item">
+              <a href="https://github.com/mjohns91" class="bi bi-github nav-link" target="_blank"> Github</a>
           </li>
           <li class="nav-item">
-              <a href="{% url 'download_resume' %}" class="nav-link">Resume</a>
+              <a href="https://www.linkedin.com/in/matthew-scott-johnson" class="bi bi-linkedin nav-link" target="_blank"> LinkedIn</a>
           </li>
       </ul>
     </div>
-      <div class="row row-cols-auto">
-        <div class="col align-right">
-          <a href="https://github.com/mjohns91" class="bi bi-github" target="_blank"></a>
-        </div>
-        <div class="col align-right">
-          <a href="https://www.linkedin.com/in/matthew-scott-johnson" class="bi bi-linkedin" target="_blank"></a>
-        </div>
-      </div>
-      <div class="form-check form-switch" style="margin-left: 20px">
+      <div class="form-check form-switch">
           <i id="mode-icon"></i>
           <script>
               if(!localStorage.getItem("firstTime")){
